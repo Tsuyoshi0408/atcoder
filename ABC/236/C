@@ -1,0 +1,25 @@
+import sys
+
+from collections import deque 
+
+input=sys.stdin.readline
+
+station,stop=map(int,input().split())
+
+sta_list=list(input().split())
+
+rapid=list(input().split())
+
+sta_list=deque(sta_list)
+
+rapid=deque(rapid)
+
+
+while sta_list:
+    sta_lis=sta_list.popleft()
+    rap=rapid.popleft()
+    if rap==sta_lis:
+        print("Yes")
+    else:
+        rapid.appendleft(rap)
+        print("No")
