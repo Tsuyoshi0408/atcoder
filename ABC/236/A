@@ -1,0 +1,12 @@
+s=input()
+
+a,b=map(int,input().split())
+a=a-1
+b=b-1
+
+S=list(s)
+
+S[a],S[b]=S[b],S[a]
+
+print(*S,sep="")
+
