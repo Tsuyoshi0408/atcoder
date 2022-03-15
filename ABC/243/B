@@ -1,0 +1,38 @@
+from collections import defaultdict, deque
+
+
+length=int(input())
+
+A=list(map(int,input().split()))
+
+B=list(map(int,input().split()))
+
+a_deq=deque(A)
+
+b_deq=deque(B)
+
+same=0
+
+for i in range(length):
+    a=a_deq.popleft()
+    b=b_deq.popleft()
+    if a==b:
+        same+=1
+
+a_dic=defaultdict()
+b_dic=defaultdict()
+
+A.sort()
+B.sort()
+
+all=0
+
+for i in A:
+    for j in B:
+        if i==j:
+            all+=1
+        elif i<j:
+            break
+
+print(same)
+print(all-same)
