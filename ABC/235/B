@@ -1,0 +1,26 @@
+import sys
+from collections import deque
+ 
+input=sys.stdin.readline
+ 
+count=int(input())
+ 
+s=list(map(int,input().split()))
+ 
+s=deque(s)
+ 
+t=deque()
+ 
+before=0
+now=0
+ 
+for i in range(count):
+    now=s.popleft()
+    if now>before:
+        before=now
+        pass
+    elif now<=before:
+        print(before)
+        sys.exit()
+    if i==count-1:
+        print(now)
