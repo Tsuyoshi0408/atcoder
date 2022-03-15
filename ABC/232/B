@@ -1,0 +1,16 @@
+S=input()
+T=input()
+U=[]
+ 
+for i in range(len(S)):
+  U.append(ord(S[i])-ord(T[i]))
+  
+U=list(set(U))
+ 
+if len(U)==1:
+  print("Yes")
+elif len(U)==2:
+  if (U[0]-U[1])%26==0:
+    print("Yes")
+  else:
+    print("No")
