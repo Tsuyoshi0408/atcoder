@@ -1,0 +1,13 @@
+start,end=map(int,input().split(" "))
+ 
+cha=[i for i in input()]
+ 
+if start==1:
+    new=cha[end-1::-1]+cha[end:]
+elif end==len(cha):
+    new=cha[:start-1]+cha[end-1:start-2:-1]
+else:
+    new=cha[:start-1]+cha[end-1:start-2:-1]+cha[end:]
+ 
+for i in new:
+    print(i,end="")
