@@ -1,0 +1,30 @@
+import sys
+import math
+
+def isPrime(n):
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+
+    m = math.floor(math.sqrt(n)) + 1
+    for p in range(3, m, 2):
+        if n % p == 0:
+            return False
+    return True
+
+
+A,B,C,D=map(int,input().split())
+
+a=0
+
+for i in range(A,B+1):
+    for j in range(C,D+1):
+        if isPrime(i+j):
+            a+=1
+            break
+
+if a==B+1-A:
+    print("Aoki")
+else:
+    print("Takahashi")
