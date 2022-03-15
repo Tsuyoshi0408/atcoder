@@ -1,0 +1,15 @@
+import sys
+
+input=sys.stdin.readline
+
+height,width=map(int,input().split())
+
+box=[list(map(int,input().split())) for i in range(height)]
+
+
+"""for i in range(width):
+    print(*box[i])"""
+
+
+for x in zip(*box):
+    print(*x)
