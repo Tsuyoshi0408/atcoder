@@ -1,0 +1,37 @@
+from collections import defaultdict
+
+
+count=int(input())
+
+people=[list(map(int,input().split())) for i in range(count)]
+
+command=[i for i in input()]
+
+ans=defaultdict(list)
+
+for index,j in enumerate(people):
+    x,y=j[0],j[1]
+    ans[y].append([x,command[index]])
+
+
+
+for i in ans.keys():
+    if len(ans[i])>=2:
+        now=ans[i]
+        now.sort()
+        left=10**9
+        right=-1
+        for j in now:
+            if j[1]=="R":
+                left=j[0]
+                break
+        for k in reversed(now):
+            if k[1]=="L":
+                right=k[0]
+                break
+        if left<right:
+            print("Yes")
+            exit()
+    else:
+        pass
+print("No")
