@@ -1,0 +1,16 @@
+v,a,b,c=map(int,input().split())
+shampoo=[a,b,c]
+
+while True:
+    for index,j in enumerate(shampoo):
+        v-=j
+        if v<0 and index==0:
+            print("F")
+            exit()
+        elif v<0 and index==1:
+            print("M")
+            exit()
+        elif v<0 and index==2:
+            print("T")
+            exit()
+
