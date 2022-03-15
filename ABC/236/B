@@ -1,0 +1,16 @@
+s=int(input())
+
+a=list(map(int,input().split()))
+
+x=0
+for i in range(s):
+    x+=i+1
+x*=4
+
+b=sum(a)
+
+ans=x-b
+
+print(ans)
+
+
