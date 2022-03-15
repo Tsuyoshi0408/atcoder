@@ -1,0 +1,6 @@
+a,b=map(int,input().split())
+
+if a+1==b or b-a==9:
+    print("Yes")
+else:
+    print("No")
