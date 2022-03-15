@@ -1,0 +1,30 @@
+import sys
+
+input=sys.stdin.readline
+
+n=int(input())
+
+cut=list(map(int,input().split()))
+
+cut_place=[360]
+
+num=0
+
+for i in cut:
+    num+=i
+    if num>=360:
+        num-=360
+    cut_place.append(num)
+
+cut_place.sort()
+
+dis=0
+now=0
+before=0
+
+for i in cut_place:
+    now=i
+    dis=max(dis,now-before)
+    before=i
+
+print(dis)
