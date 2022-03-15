@@ -1,0 +1,14 @@
+import sys
+ 
+input=sys.stdin.readline
+ 
+X=input()
+X=int(X)
+ 
+a=X//100
+b=(X-a*100)//10
+c=X%10
+ 
+d=a+b+c
+ 
+print(100*d+10*d+d)
