@@ -1,0 +1,18 @@
+from collections import defaultdict
+
+
+N=defaultdict()
+
+for i in input():
+    if not i in N:
+        N[i]=1
+    else:
+        N[i]+=1
+
+X=""
+
+N=sorted(N.items())
+
+for key,value in N:
+    X+=key*value
+print(X)
