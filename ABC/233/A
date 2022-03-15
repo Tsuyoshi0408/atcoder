@@ -1,0 +1,11 @@
+now,need=map(int,input().split(" "))
+ 
+if now>=need:
+    print(0)
+else:
+    dis=need-now
+    count=dis//10
+    if dis%10>0:
+      print(count+1)
+    else:
+      print(count)
