@@ -1,0 +1,13 @@
+import sys
+
+x,y,X,Y=map(int,input().split())
+
+if (x-X)**2+(y-Y)**2<=20:
+    a=min(x,X)
+    for i in range(a+1,a+3):
+        for j in range(y-3,y+3):
+            if (i-x)**2+(j-y)**2==5 and (i-X)**2+(j-Y)**2==5:
+                print("Yes")
+                sys.exit()
+    
+print("No")
