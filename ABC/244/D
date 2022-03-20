@@ -1,0 +1,16 @@
+now=input().split()
+
+ans=input().split()
+fin=ans[0]+ans[1]+ans[2]
+
+now_right=now[2]+now[0]+now[1]
+now_left=now[1]+now[2]+now[0]
+
+if now==ans:
+    print("Yes")
+elif fin==now_right or fin==now_left:
+    print("Yes")
+else:
+    print("No")
+
+
