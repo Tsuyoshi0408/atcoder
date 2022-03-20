@@ -1,0 +1,22 @@
+count=int(input())
+
+com=input()
+
+direction=0
+#E=0,S=1,W=2,N=3
+now=[0,0]
+
+for i in com:
+    if i=="S":
+        if direction%4==0:
+            now[0]+=1
+        elif direction%4==1:
+            now[1]-=1
+        elif direction%4==2:
+            now[0]-=1
+        elif direction%4==3:
+            now[1]+=1
+    elif i=="R":
+        direction+=1
+print(*now)
+
