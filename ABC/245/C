@@ -1,0 +1,40 @@
+from collections import deque
+
+
+N,K=map(int,input().split())
+
+A=list(map(int,input().split()))
+
+B=list(map(int,input().split()))
+
+now=deque()
+A=deque(A)
+B=deque(B)
+now.append([A.popleft(),B.popleft()])
+
+ans=0
+
+while now:
+    ans+=1
+    if ans==N:
+        print("Yes")
+        exit()
+    count=now.popleft()
+    a=A.popleft()
+    b=B.popleft()
+    ins=[]
+    for j in count:
+        if abs(j-a)<=K:
+            ins.append(a)
+        if abs(j-b)<=K:
+            ins.append(b)
+    ins=list(set(ins))
+    if ins!=[]:
+        now.append(ins)
+
+
+print("No")
+
+
+
+
