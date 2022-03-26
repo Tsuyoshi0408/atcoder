@@ -1,0 +1,20 @@
+n=int(input())
+
+data=list(map(int,input().split()))
+
+data=list(set(data))
+
+data.sort()
+
+if data==[0]:
+    print(1)
+    exit()
+
+for i in range(len(data)):
+    if i != data[i]:
+        print(i)
+        exit()
+    else:
+        pass
+print(len(data))
+
