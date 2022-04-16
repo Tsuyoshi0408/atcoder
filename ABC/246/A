@@ -1,0 +1,34 @@
+from collections import defaultdict
+
+
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+c=list(map(int,input().split()))
+
+d=[a[0],b[0],c[0]]
+e=[a[1],b[1],c[1]]
+
+
+x=defaultdict()
+y=defaultdict()
+
+for i in d:
+    if not i in x:
+        x[i]=1
+    else:
+        x[i]+=1
+        
+for i in e:
+    if not i in y:
+        y[i]=1
+    else:
+        y[i]+=1
+
+for key,value in x.items():
+    if value==1:
+        x_ans=key
+for key,value in y.items():
+    if value==1:
+        y_ans=key
+
+print(x_ans,y_ans)
