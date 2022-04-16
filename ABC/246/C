@@ -1,0 +1,32 @@
+from collections import deque
+
+
+N,K,X=map(int,input().split())
+
+p=list(map(int,input().split()))
+
+p.sort(reverse=True)
+
+p=deque(p)
+
+while K:
+    now=p.popleft()
+    if X>now:
+        p.append(now)
+        break
+    count,more=now//X,now%X
+    if K<=count:
+        more=now-K*X
+        K=0
+    else:
+        K-=count
+    p.append(more)
+
+p=list(p)
+p.sort(reverse=True)
+p=p[K:]
+
+print(sum(p))
+
+
+
