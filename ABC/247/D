@@ -1,0 +1,38 @@
+from collections import deque
+
+
+N=int(input())
+
+que=deque()
+
+def inner(x,c):
+    que.append([x,c])
+
+def out(c):
+    count=c
+    output=0
+    while count:
+        now=que.popleft()
+        num,ball_count=now
+        if count<ball_count:
+            output+=num*count
+            print(output)
+            que.appendleft([num,ball_count-count])
+            count=0
+        elif count==ball_count:
+            output+=count*num
+            print(output)
+            count=0
+        else:
+            output+=num*ball_count
+            count-=ball_count
+
+
+for i in range(N):
+    command=list(map(int,input().split()))
+    if command[0]==1:
+        inner(command[1],command[2])
+    elif command[0]==2:
+        out(command[1])
+
+
