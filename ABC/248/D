@@ -1,0 +1,29 @@
+from collections import defaultdict
+
+N=input()
+d=list(map(int,input().split()))
+
+data=defaultdict(list)
+
+for index,value in enumerate(d):
+    data[value].append(index+1)
+
+Q=int(input())
+
+for i in range(Q):
+    L,R,X=map(int,input().split())
+    count=data[X]
+    ans=len(count)
+    cou=0
+    for i in count:
+        if i<L:
+            cou+=1
+        else:
+            break
+    for i in reversed(count):
+        if i>R:
+            cou+=1
+        else:
+            break
+    ans-=cou
+    print(ans)
