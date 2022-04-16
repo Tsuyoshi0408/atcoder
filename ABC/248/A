@@ -1,0 +1,10 @@
+a=input()
+b=[int(i) for i in range(10)]
+
+c=[int(i) for i in a]
+
+for x in b:
+    if not x in c:
+        print(x)
+        exit()
+
