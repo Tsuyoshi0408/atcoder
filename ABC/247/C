@@ -1,0 +1,15 @@
+import functools
+
+x=int(input())
+
+@functools.lru_cache()
+def cal(n):
+    if n==1:
+        return [1]
+    else:
+        return cal(n-1)+[n]+cal(n-1)
+    
+print(*cal(x))
+
+
+
