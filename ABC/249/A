@@ -1,0 +1,17 @@
+import sys 
+
+input=sys.stdin.readline
+
+A,B,C,D,E,F,X=map(int,input().split())
+
+takahashi=(X//(A+C))*A*B+B*min(A,(X%(A+C)))
+
+aoki=(X//(D+F))*D*E+E*min(D,(X%(D+F)))
+
+if aoki>takahashi:
+    print("Aoki")
+elif aoki<takahashi:
+    print("Takahashi")
+else:
+    print("Draw")
+
