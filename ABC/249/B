@@ -1,0 +1,20 @@
+import sys 
+
+input=sys.stdin.readline
+
+S=input()
+
+l=len(S)
+
+ans=True
+
+if l>len(set(S)):
+    ans=False
+
+if S.islower():
+    ans=False
+
+if S.isupper():
+    ans=False
+
+print("Yes" if ans else "No")
