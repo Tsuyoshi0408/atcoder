@@ -1,0 +1,30 @@
+from collections import defaultdict
+import sys
+
+input=sys.stdin.readline
+
+n,q=map(int,input().split())
+
+ball=defaultdict(int)
+ball_where=defaultdict(int)
+
+for i in range(1,n+1):
+    ball[int(i)]=int(i)
+
+for i in range(1,n+1):
+    ball_where[int(i)]=int(i)
+
+for i in range(q):
+    now=int(input())
+    if ball[now]<n:
+        place=ball[now]
+        ball[now]+=1
+        ball[ball_where[place+1]]-=1
+        ball_where[place],ball_where[place+1]=ball_where[place+1],ball_where[place]
+    elif ball[now]==n:
+        ball[now]-=1
+        ball[ball_where[n-1]]+=1
+        ball_where[n],ball_where[n-1]=ball_where[n-1],ball_where[n]
+
+print(*list(ball_where.values()))
+
