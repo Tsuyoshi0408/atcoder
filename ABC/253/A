@@ -1,0 +1,14 @@
+import sys
+
+input=sys.stdin.readline
+
+a,b,c=map(int,input().split())
+
+now=[a,b,c]
+
+now.sort()
+
+if now[1]==b:
+    print("Yes")
+else:
+    print("No")
