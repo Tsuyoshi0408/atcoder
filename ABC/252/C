@@ -1,0 +1,39 @@
+from collections import defaultdict
+import sys
+
+input=sys.stdin.readline
+
+N=int(input())
+
+data=defaultdict(list)
+
+ans=10000
+
+for i in range(N):
+    slot=input().rsplit("\n")
+    count=-1
+    for j in slot[0]:
+        j=int(j)
+        count+=1
+        data[j].append(count)
+
+for i in range(10):
+    now=data[i]
+    if now:
+        if len(now)==len(set(now)):
+            ans=min(ans,max(now))
+        else:
+            now_list=defaultdict(int)
+            for j in now:
+                if j not in now_list:
+                    now_list[j]=1
+                else:
+                    now_list[j]+=1
+            point=0
+            for k,v in now_list.items():
+                if v>1:
+                    point=max(point,k+10*(v-1))
+            ans=min(ans,point)
+
+print(ans)
+
