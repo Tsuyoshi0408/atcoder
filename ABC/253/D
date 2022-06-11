@@ -1,0 +1,26 @@
+import sys
+import math
+
+input=sys.stdin.readline
+
+number,a,b=map(int,input().split())
+
+def lcm(a, b):
+    return int(a * b / math.gcd(a, b))
+
+S=(number*(number+1))//2
+
+c=lcm(a,b)
+
+A=number//a
+S-=A*(A+1)*a//2
+
+B=number//b
+S-=B*(B+1)*b//2
+
+C=number//c
+S+=C*(C+1)*c//2
+
+print(S)
+
+
