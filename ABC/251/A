@@ -1,0 +1,17 @@
+import sys
+
+input=sys.stdin.readline
+
+S=input().rstrip("\n")
+
+
+if len(S)==1:
+    S=S*6
+    print(S)
+elif len(S)==2:
+    S=S*3
+    print(S)
+elif len(S)==3:
+    S=S*2
+    print(S)
+
