@@ -1,0 +1,32 @@
+import sys
+
+input=sys.stdin.readline
+
+n,k=map(int,input().split())
+
+max_number=0
+
+max_list=[]
+
+food=list(map(int,input().split()))
+hate=list(map(int,input().split()))
+
+for index,value in enumerate(food):
+    index+=1
+    if max_number<value:
+        max_number=value
+        max_list=[]
+        max_list.append(index)
+    elif max_number==value:
+        max_list.append(index)
+    else:
+        continue
+
+for i in hate:
+    if i in max_list:
+        print("Yes")
+        exit()
+
+print("No")
+
+
