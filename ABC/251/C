@@ -1,0 +1,31 @@
+from collections import defaultdict
+import sys
+
+input=sys.stdin.readline
+
+N=int(input())
+
+prize=defaultdict()
+
+for i in range(N):
+    i=i+1
+    word,score=input().split()
+    if word not in prize:
+        prize[word]=[int(score),i]
+    else:
+        pass
+
+
+
+number=0
+ans=1000000
+
+for i in prize.values():
+    s,n=i
+    if s>number:
+        number=s
+        ans=n
+    elif s==number:
+        ans=min(ans,n)
+
+print(ans)
