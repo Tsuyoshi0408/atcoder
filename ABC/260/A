@@ -1,0 +1,18 @@
+import sys
+
+input=sys.stdin.readline
+
+x=list(i for i in input())
+a,b,c=x[0],x[1],x[2]
+
+if a==b==c:
+    print(-1)
+elif a==b:
+    print(c)
+elif b==c:
+    print(a)
+elif a==c:
+    print(b)
+else:
+    print(a)
+
