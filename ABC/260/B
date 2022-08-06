@@ -1,0 +1,71 @@
+from collections import defaultdict
+import sys
+
+input=sys.stdin.readline
+
+n,x,y,z=map(int,input().split())
+
+math_score=list(map(int,input().split()))
+eng_score=list(map(int,input().split()))
+total_score=[x+y for (x,y) in zip(math_score,eng_score)]
+
+passed=[0 for i in range(n+1)]
+
+math=defaultdict(list)
+english=defaultdict(list)
+total=defaultdict(list)
+
+for num,score in enumerate(math_score):
+    math[score].append(num+1)
+for num,score in enumerate(eng_score):
+    english[score].append(num+1)
+for num,score in enumerate(total_score):
+    total[score].append(num+1)
+
+ma=sorted(math.keys(),reverse=True)
+en=sorted(english.keys(),reverse=True)
+to=sorted(total.keys(),reverse=True)
+
+count=x
+for i in ma:
+    if count==0:
+        break
+    for j in math[i]:
+        if count==0:
+            break
+        if passed[j]==1:
+            pass
+        else:
+            passed[j]=1
+            count-=1
+    
+count=y
+for i in en:
+    if count==0:
+        break
+    for j in english[i]:
+        if count==0:
+            break
+        if passed[j]==1:
+            pass
+        else:
+            passed[j]=1
+            count-=1
+
+count=z
+for i in to:
+    if count==0:
+        break
+    for j in total[i]:
+        if count==0:
+            break
+        if passed[j]==1:
+            pass
+        else:
+            passed[j]=1
+            count-=1
+
+for i in [key for key,value in enumerate(passed) if value==1]:
+    print(i)
+
+
