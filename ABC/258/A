@@ -1,0 +1,16 @@
+import sys
+
+input=sys.stdin.readline
+
+time=int(input())
+
+if time>=60:
+    if time>=70:
+        print(f"22:{time-60}")
+    else:
+        print(f"22:0{time-60}")
+else:
+    if time>=10:
+        print(f"21:{time}")
+    else:
+        print(f"21:0{time}")
