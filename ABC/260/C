@@ -1,0 +1,31 @@
+from collections import deque
+import sys
+
+input=sys.stdin.readline
+
+n,x,y=map(int,input().split())
+
+data=deque()
+
+ans=0
+
+data.append([0,n,1])
+
+while data:
+    now=data.popleft()
+    color,level,count=now
+    if level==1:
+        if color==1:
+            ans+=count
+            continue
+        else:
+            continue
+    if color==0:
+        data.append([0,level-1,count])
+        data.append([1,level,count*x])
+    elif color==1:
+        data.append([0,level-1,count])
+        data.append([1,level-1,count*y])
+
+print(ans)
+
